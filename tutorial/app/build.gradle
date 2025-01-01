@@ -175,4 +175,9 @@ Finally, we used the build task — unlike incremental builds, the previous 
 local gradle build cache is at
 \UserProfile\.gradle\caches
 
+the 2 main directories used by gradle are
+Project root directory - this is where the settings.gradle file is
+Gradle user home - this is at C:\Users\nischal\.gradle
+
+
  */
