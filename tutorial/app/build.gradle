@@ -160,5 +160,19 @@ custom task on the way kailash!
 > Task :app:check
 > Task :app:build
 
+now, we enable the build cache
+
+we need to add org.gradle.caching=true
+
+To summarize:
+
+First, we used the build task to populate our local cache with task inputs and outputs — we can imagine this was done a week ago.
+
+Then, we used the clean task to mimic switching branches — overriding previous outputs.
+
+Finally, we used the build task — unlike incremental builds, the previous outputs were stored in the local cache and could be reused.
+
+local gradle build cache is at
+\UserProfile\.gradle\caches
 
  */
