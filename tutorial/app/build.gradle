@@ -1,8 +1,29 @@
 
+//applying a plugin
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'maven-publish'
 }
+
+//now, we add a plugin that will publish the artifact to
+// maven local repo
+// which is at C:\Users\nisch\.m2
+// you also need to add publishing information
+// ./gradlew :app:publishToMavenLocal
+publishing {
+    publications {
+        create("maven", MavenPublication) {
+            groupId = "com.gradle.tutorial"
+            artifactId = "tutorial"
+            version = "6.3"
+
+            from(components["java"])
+        }
+    }
+}
+
+
 
 repositories {
     // Use Maven Central for resolving dependencies.

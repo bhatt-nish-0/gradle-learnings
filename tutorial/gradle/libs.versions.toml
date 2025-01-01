@@ -68,3 +68,11 @@ junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jun
 #\--- com.google.j2objc:j2objc-annotations:1.3
 
 #transitive dependencies have changed also!
+
+#plugins - organize build logic
+#plugins - reuse build logic
+#plugins - package custom tasks and distribute them!
+
+#plugin - can create tasks
+
+#plugins - add tasks to a project
