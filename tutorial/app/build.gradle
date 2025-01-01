@@ -7,6 +7,10 @@ plugins {
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    // this is the source of dependencies.
+    // gradle needs some information to find the dependency.
+    // since the below refers to the libs.version.toml
+    // lets look at libs.version.toml
 }
 
 dependencies {
@@ -18,6 +22,7 @@ dependencies {
     // This dependency is used by the application.
     implementation libs.guava
 }
+// the above is how the catalog is referenced
 
 // Apply a specific Java toolchain to ease working on different environments.
 java {
