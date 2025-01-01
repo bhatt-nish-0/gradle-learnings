@@ -179,5 +179,30 @@ the 2 main directories used by gradle are
 Project root directory - this is where the settings.gradle file is
 Gradle user home - this is at C:\Users\nischal\.gradle
 
+gradle supports multi-project builds
+gradle refers to modules as subprojects
+a multi-project build consists of one root project and one or more
+subprojects
+
+multi project standards
+1. buildSrc is a kind of subproject at the gradle project root level containing
+all the build logic!
+lets say the project has the following subprojects - a and b
+then on the same level as settings.gradle there will be 3 subprojects
+a , b and buildSrc - buildSrc will have its own build.gradle
+
+but buildSrc does not need to be included in the settings.gradle
+as an "include"
+
+buildSrc directory is auto recognized by gradle.
+
+------------------there is another way to achieve multi project standard
+
+at the same level with the subprojects,
+we have a directory called build-logic
+however, this time, this directory does not function like a subproject
+it functions as a build directory.
+
+
 
  */
