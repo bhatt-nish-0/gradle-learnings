@@ -75,3 +75,90 @@ task helloNish2 {
     dependsOn("helloNish")
 }
 build.dependsOn helloNish
+
+/*
+now we talk about incremental builds
+we will add a gradle.properties
+in the top level folder (tutorial), create a gradle.properties file
+org.gradle.console=verbose
+
+now we will run
+./gradlew :app:clean :app:build
+
+Calculating task graph as no cached configuration is available for tasks: :app:clean :app:build
+thsi is init
+
+> Task :app:helloNish
+custom task on the way kailash!
+
+> Task :app:clean
+> Task :app:processResources NO-SOURCE
+> Task :app:processTestResources NO-SOURCE
+> Task :app:compileJava
+> Task :app:classes
+> Task :app:jar
+> Task :app:startScripts
+> Task :app:compileTestJava
+> Task :app:testClasses
+> Task :app:distTar
+> Task :app:distZip
+> Task :app:assemble
+> Task :app:test
+> Task :app:check
+> Task :app:build
+
+---------------------
+
+now , we just run gradle build without the clean
+
+Calculating task graph as no cached configuration is available for tasks: :app:build
+thsi is init
+> Task :app:processTestResources NO-SOURCE
+
+> Task :app:helloNish
+custom task on the way kailash!
+
+> Task :app:processResources NO-SOURCE
+> Task :app:compileJava UP-TO-DATE
+> Task :app:classes UP-TO-DATE
+> Task :app:compileTestJava UP-TO-DATE
+> Task :app:testClasses UP-TO-DATE
+> Task :app:jar UP-TO-DATE
+> Task :app:startScripts UP-TO-DATE
+> Task :app:distZip UP-TO-DATE
+> Task :app:distTar UP-TO-DATE
+> Task :app:test UP-TO-DATE
+> Task :app:assemble UP-TO-DATE
+> Task :app:check UP-TO-DATE
+> Task :app:build
+
+the UP-TO-DATE indicates that some tasks did not need
+to re-run
+---------------------------
+
+now we run the clean build again
+
+Calculating task graph as configuration cache cannot be reused because file 'app\build.gradle' has changed.
+thsi is init
+
+> Task :app:helloNish
+custom task on the way kailash!
+
+> Task :app:clean
+> Task :app:processResources NO-SOURCE
+> Task :app:processTestResources NO-SOURCE
+> Task :app:compileJava
+> Task :app:classes
+> Task :app:jar
+> Task :app:startScripts
+> Task :app:compileTestJava
+> Task :app:testClasses
+> Task :app:distTar
+> Task :app:distZip
+> Task :app:assemble
+> Task :app:test
+> Task :app:check
+> Task :app:build
+
+
+ */
